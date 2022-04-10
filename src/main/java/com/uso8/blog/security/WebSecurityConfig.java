@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .mvcMatchers("/blog/postBlog").hasAnyAuthority("ADMIN")
+                .mvcMatchers("/blog/postBlog", "/logout").hasAnyAuthority("ADMIN")
                 .mvcMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
